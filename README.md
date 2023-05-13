@@ -35,3 +35,13 @@ Train a model:
     ./scripts/train.sh
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved. It is also possible to continue training from there later on.
+
+
+# How to train the models and create the tabel/line chart
+
+- To train the model with pre normalization run ./scripts/train.sh which uses the configuration saved in configs/deen_transformer_regular.yaml
+- To train the model with post normalization run ./scripts/train_post.sh which uses the configuration saved in configs/deen_transformer_post.yaml
+- The logs are saved in the respective folder in the logs directory.
+- To create the table and the line chart which are saved in the "results" directory run:
+
+	python3 results/create_table.py --pre_log logs/deen_transformer_regular/err --baseline_log logs/baseline/baseline.log --post_log logs/deen_transformer_post/err
